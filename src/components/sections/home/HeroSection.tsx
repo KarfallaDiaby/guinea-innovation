@@ -30,13 +30,13 @@ export const HeroSection = () => {
           <div className="max-w-4xl">
              {/* Titre */}
              <h1 className="font-[var(--font-poppins)] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[72px] leading-tight text-white mb-4">
-               L'impact des <span className="bg-gradient-to-r from-[#99FFCD] to-[#072E82] bg-clip-text text-transparent">fintechs</span> <br /> sur l'économie guinéenne
+               L&apos;impact des <span className="bg-gradient-to-r from-[#99FFCD] to-[#072E82] bg-clip-text text-transparent">fintechs</span> <br /> sur l&apos;économie guinéenne
              </h1>
 
             {/* Description */}
             <p className="font-[var(--font-inter)] font-normal text-base sm:text-lg lg:text-xl xl:text-[18px] leading-relaxed text-white max-w-2xl mb-4">
               Les technologies financières (fintechs) transforment le paysage économique guinéen en offrant des solutions innovantes pour
-              l'inclusion financière, les paiements mobiles et les services...{' '}
+              l&apos;inclusion financière, les paiements mobiles et les services...{' '}
               <a 
                 href="#" 
                 className="underline underline-offset-2 hover:text-[#99FFCD] transition-colors duration-200"

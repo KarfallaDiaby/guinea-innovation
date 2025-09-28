@@ -1,62 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
-import { DropdownMenu } from '@/components/ui/dropdown-menu'
+import Link from 'next/link'
 
 export const Header = () => {
-  // Configuration des dropdowns selon l'architecture
-  const startupTechOptions = [
-    {
-      label: "Actu Startup",
-      onClick: () => console.log("Actu Startup"),
-      Icon: null
-    },
-    {
-      label: "Portraits Entrep.",
-      onClick: () => console.log("Portraits Entrep."),
-      Icon: null
-    }
-  ]
-
-  const innovationsSocialesOptions = [
-    {
-      label: "Education",
-      onClick: () => console.log("Education"),
-      Icon: null
-    },
-    {
-      label: "Agriculture",
-      onClick: () => console.log("Agriculture"),
-      Icon: null
-    },
-    {
-      label: "Santé",
-      onClick: () => console.log("Santé"),
-      Icon: null
-    },
-    {
-      label: "Développement communautaire",
-      onClick: () => console.log("Développement communautaire"),
-      Icon: null
-    }
-  ]
-
-  const cultureOptions = [
-    {
-      label: "Music et Cinéma",
-      onClick: () => console.log("Music et Cinéma"),
-      Icon: null
-    },
-    {
-      label: "Art et Design",
-      onClick: () => console.log("Art et Design"),
-      Icon: null
-    },
-    {
-      label: "Patrimoine et Tradition",
-      onClick: () => console.log("Patrimoine et Tradition"),
-      Icon: null
-    }
-  ]
 
   return (
     <header className="bg-[#072E82] shadow-sm border-b border-[var(--border)]">
@@ -86,12 +32,12 @@ export const Header = () => {
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
              {/* Accueil - Simple lien */}
-             <a 
+             <Link 
                href="/" 
                className="text-white border-b-2 border-white pb-1 font-[var(--font-inter)] font-normal text-base leading-none tracking-normal"
              >
                Accueil
-             </a>
+             </Link>
 
             {/* Startup & Tech - Dropdown */}
             <div className="relative group">
