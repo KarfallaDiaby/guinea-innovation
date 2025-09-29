@@ -19,7 +19,7 @@ export const NewsletterSection = () => {
   };
 
   return (
-    <section className="w-full bg-[#565E6D4D] py-20">
+    <section className="w-full bg-[#D9D9D9] py-20">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           {/* Titre principal */}
