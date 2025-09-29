@@ -23,14 +23,13 @@ export const FeaturedArticle = ({
     <article className={`bg-[#F8F9FA] border border-white rounded-lg p-6 ${className}`}>
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Image */}
-        <div className="w-full lg:w-[300px] h-[200px] bg-gray-200 rounded-[10px] border border-white flex items-center justify-center">
+        <div className="w-full lg:w-[300px] h-[200px] bg-gray-200 rounded-[10px] border border-white flex items-center justify-center relative overflow-hidden">
           {imageUrl ? (
             <Image
               src={imageUrl}
               alt={title}
-              width={300}
-              height={200}
-              className="w-full h-full object-cover rounded-[10px]"
+              fill
+              className="object-cover rounded-[10px]"
             />
           ) : (
             <div className="text-gray-400 text-sm">Image placeholder</div>

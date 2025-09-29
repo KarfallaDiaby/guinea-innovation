@@ -24,7 +24,7 @@ export const ArticleCard = ({
   return (
     <article className={`bg-[#F8F9FA] border border-white rounded-lg p-6 ${className}`}>
       {/* Image */}
-      <div className="w-full h-48 bg-gray-200 rounded-lg border border-white overflow-hidden mb-4">
+      <div className="w-full h-48 bg-gray-200 rounded-lg border border-white overflow-hidden mb-4 relative">
         {imageUrl ? (
           <Image
             src={imageUrl}
