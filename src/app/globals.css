@@ -150,3 +150,22 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Animation de défilement infini pour les cartes de catégories */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+  width: calc(200% + 1.5rem); /* 200% pour 2 séries + gap */
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}

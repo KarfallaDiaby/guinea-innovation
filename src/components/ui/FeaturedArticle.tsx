@@ -43,13 +43,13 @@ export const FeaturedArticle = ({
             {title}
           </h3>
           
-          <p className="font-[var(--font-inter)] font-normal text-base lg:text-[18px] leading-[28px] text-[#171A1F] mb-6">
+          <p className="font-[var(--font-inter)] font-normal text-base lg:text-[18px] leading-[28px] text-[#171A1F] mb-4">
             {description}
           </p>
 
           <button 
             onClick={onReadMore}
-            className="bg-[#0166FF] text-white px-6 py-3 rounded-lg font-[var(--font-inter)] font-medium hover:bg-[#0052CC] transition-colors duration-200"
+            className="text-[#0166FF] font-[var(--font-inter)] font-medium hover:underline transition-colors duration-200"
           >
             {buttonText}
           </button>
