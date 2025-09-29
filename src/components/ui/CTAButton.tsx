@@ -6,7 +6,7 @@ interface CTAButtonProps {
 }
 
 export const CTAButton = ({ children, onClick, href, className = "" }: CTAButtonProps) => {
-  const buttonClasses = `w-[283px] h-[48px] bg-[#565E6D] border border-black flex items-center justify-center font-[var(--font-inter)] font-medium text-white hover:bg-[#4A5360] transition-colors duration-200 ${className}`;
+  const buttonClasses = `w-[283px] h-[48px] bg-[#3B82F6] border border-[#3B82F6] flex items-center justify-center font-[var(--font-inter)] font-medium text-white hover:bg-[#2563EB] hover:border-[#2563EB] transition-colors duration-200 ${className}`;
 
   if (href) {
     return (

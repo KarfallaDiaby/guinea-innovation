@@ -4,12 +4,36 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 
 export const ExploreSection = () => {
   const categories = [
-    { title: "Startup & Tech", href: "/startup-tech" },
-    { title: "Innovations sociales", href: "/innovations-sociales" },
-    { title: "Culture", href: "/culture" },
-    { title: "Événements", href: "/evenements" },
-    { title: "Portraits", href: "/portraits" },
-    { title: "Témoignages", href: "/temoignages" }
+    { 
+      title: "Startup & Tech", 
+      href: "/startup-tech",
+      backgroundImage: "/img/anthony-lim-EZGPy_HOZWQ-unsplash.jpg"
+    },
+    { 
+      title: "Innovations sociales", 
+      href: "/innovations-sociales",
+      backgroundImage: "/img/black-girl-engages-with-virtual-reality-while-partner-works-laptop-desk.jpg"
+    },
+    { 
+      title: "Culture", 
+      href: "/culture",
+      backgroundImage: "/img/chuttersnap-aEnH4hJ_Mrs-unsplash.jpg"
+    },
+    { 
+      title: "Événements", 
+      href: "/evenements",
+      backgroundImage: "/img/close-up-man-repairing-computer-chips.jpg"
+    },
+    { 
+      title: "Portraits", 
+      href: "/portraits",
+      backgroundImage: "/img/kosta-media-0MHDC4a7zUQ-unsplash.jpg"
+    },
+    { 
+      title: "Témoignages", 
+      href: "/temoignages",
+      backgroundImage: "/img/logan-voss-unfkShZS1A0-unsplash.jpg"
+    }
   ];
 
   const handleDiscoverAll = () => {
@@ -43,6 +67,7 @@ export const ExploreSection = () => {
                 key={`first-${index}`}
                 title={category.title}
                 href={category.href}
+                backgroundImage={category.backgroundImage}
               />
             ))}
             {/* Deuxième série de cartes pour l'effet infini */}
@@ -51,6 +76,7 @@ export const ExploreSection = () => {
                 key={`second-${index}`}
                 title={category.title}
                 href={category.href}
+                backgroundImage={category.backgroundImage}
               />
             ))}
           </div>

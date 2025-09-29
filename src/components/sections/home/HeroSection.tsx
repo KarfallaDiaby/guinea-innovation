@@ -1,27 +1,86 @@
+'use client'
+
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 export const HeroSection = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  
+  const heroImages = [
+    {
+      src: "/img/man-wearing-smart-glasses-touching-holographic-screen.jpg",
+      alt: "Innovation technologique en Guinée",
+      objectPosition: "28% 0%",
+      gradient: "linear-gradient(270deg, rgba(153, 255, 205, 0) 0%, rgba(0, 0, 0, 0.31) 105.97%)"
+    },
+    {
+      src: "/img/black-girl-engages-with-virtual-reality-while-partner-works-laptop-desk.jpg",
+      alt: "Collaboration technologique et réalité virtuelle",
+      objectPosition: "100% 0%",
+      gradient: "linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.6) 105.97%)"
+    },
+    {
+      src: "/img/close-up-man-repairing-computer-chips.jpg",
+      alt: "Innovation et réparation technologique",
+      objectPosition: "180% 0%",
+      gradient: "linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 105.97%)"
+    }
+  ]
+
+  // Défilement automatique toutes les 5 secondes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      )
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [heroImages.length])
+
+  const goToPrevious = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? heroImages.length - 1 : prevIndex - 1
+    )
+  }
+
+  const goToNext = () => {
+    setCurrentImageIndex((prevIndex => 
+      prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+    ))
+  }
+
   return (
     <section className="relative h-[120vh] w-full overflow-hidden">
-      {/* Background Image */}
+      {/* Background Images Carousel */}
       <div className="absolute inset-0 z-0">
-         <Image
-           src="/img/man-wearing-smart-glasses-touching-holographic-screen.jpg"
-           alt="Innovation technologique en Guinée"
-           fill
-           className="object-cover scale-100"
-           style={{ 
-             objectPosition: '28% 0%',
-           }}
-           priority
-         />
-        {/* Overlay dégradé pour améliorer la lisibilité */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(270deg, rgba(153, 255, 205, 0) 0%, rgba(0, 0, 0, 0.31) 105.97%)'
-          }}
-        ></div>
+        {heroImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              className={`object-cover scale-100 ${index === 2 ? 'scale-x-[-1]' : ''}`}
+              style={{ 
+                objectPosition: image.objectPosition,
+              }}
+              priority={index === 0}
+            />
+            
+            {/* Overlay dégradé spécifique à chaque image */}
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: image.gradient
+              }}
+            ></div>
+          </div>
+        ))}
       </div>
 
       {/* Content */}
@@ -47,7 +106,11 @@ export const HeroSection = () => {
 
             {/* Navigation Icons */}
             <div className="flex items-center space-x-4">
-              <button className="w-8 h-8 hover:opacity-80 transition-opacity duration-200">
+              <button 
+                onClick={goToPrevious}
+                className="w-8 h-8 hover:opacity-80 transition-opacity duration-200"
+                aria-label="Image précédente"
+              >
                 <Image
                   src="/icon/Round Alt Arrow Left.svg"
                   alt="Précédent"
@@ -56,7 +119,11 @@ export const HeroSection = () => {
                   className="w-full h-full"
                 />
               </button>
-              <button className="w-8 h-8 hover:opacity-80 transition-opacity duration-200">
+              <button 
+                onClick={goToNext}
+                className="w-8 h-8 hover:opacity-80 transition-opacity duration-200"
+                aria-label="Image suivante"
+              >
                 <Image
                   src="/icon/Round Alt Arrow Right.svg"
                   alt="Suivant"
@@ -67,6 +134,24 @@ export const HeroSection = () => {
               </button>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Indicateurs de position */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="flex space-x-2">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentImageIndex 
+                  ? 'bg-white scale-125' 
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`Aller à l'image ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

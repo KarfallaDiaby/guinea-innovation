@@ -19,7 +19,7 @@ export const NewsletterSection = () => {
   };
 
   return (
-    <section className="w-full bg-[#D9D9D9] py-20">
+    <section className="w-full bg-[#10B981]/15 py-20">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           {/* Titre principal */}
@@ -52,7 +52,7 @@ export const NewsletterSection = () => {
             {/* Bouton d'inscription */}
             <button
               type="submit"
-              className="w-[153px] h-[48px] bg-[#565E6D] border border-black text-white font-[var(--font-inter)] font-medium hover:bg-[#4A5360] transition-colors duration-200 flex items-center justify-center"
+              className="w-[153px] h-[48px] bg-[#3B82F6] border border-[#3B82F6] text-white font-[var(--font-inter)] font-medium hover:bg-[#2563EB] hover:border-[#2563EB] transition-colors duration-200 flex items-center justify-center"
             >
               {isSubscribed ? 'Inscrit !' : 'S\'abonner'}
             </button>
